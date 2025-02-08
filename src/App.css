@@ -29,6 +29,11 @@
   padding: 20px;
 }
 
+.separator {
+  pointer-events: none;
+  user-select: none;
+}
+
 /* .logo {
   height: 6em;
   padding: 1.5em;

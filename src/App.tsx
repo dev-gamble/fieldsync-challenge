@@ -18,9 +18,11 @@ const App: React.FC = () => {
           <Link to="/">
             <a className='link'>Home</a>
           </Link>
+          <span className='separator'> | </span>
           <Link to="/save">
             <a className='link'>Save</a>
           </Link>
+          <span className='separator'> | </span>
           <Link to="/fetch">
             <a className='link'>Fetch</a>
           </Link>

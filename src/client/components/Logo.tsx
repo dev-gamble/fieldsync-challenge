@@ -1,8 +1,9 @@
 import React from "react";
+import '../styles/Logo.css'
 
 const Logo: React.FC<{ logo: string }> = ({ logo }) => {
     return (
-        <div>
+        <div className='logo-container'>
             <img src={logo} alt='Field Sync' width="150" height="50" />
         </div>
     );
