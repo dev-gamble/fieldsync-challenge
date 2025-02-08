@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './client/pages/Home'
+import Fetch from './client/pages/Fetch'
+import Save from './client/pages/Save'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React from 'react'
+import Logo from './client/components/Logo';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className='home-items'>
+
+        <Logo logo="https://cdn.prod.website-files.com/63efbaeda51a4e2fac57cad6/63efd250ba04fc992c230ade_fieldsync-1c-white.svg" />
+
+        {/* Navigation Links */}
+        <nav className='nav-links'>
+          <Link to="/">
+            <a className='link'>Home</a>
+          </Link>
+          <Link to="/save">
+            <a className='link'>Save</a>
+          </Link>
+          <Link to="/fetch">
+            <a className='link'>Fetch</a>
+          </Link>
+        </nav>
+
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/fetch" element={<Fetch />} />
+          <Route path="/save" element={<Save />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 
