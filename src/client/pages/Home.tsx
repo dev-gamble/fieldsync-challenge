@@ -22,7 +22,7 @@ const Home: React.FC = () => {
     // Fetch users from the API
     const handleDownload = async () => {
 
-        setMessage("Downloading...")
+        setMessage("Downloading...");
 
         try {
             const response = await fetch("https://jsonplaceholder.typicode.com/users");
