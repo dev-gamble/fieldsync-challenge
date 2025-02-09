@@ -4,6 +4,7 @@ import Home from './client/pages/Home';
 import Fetch from './client/pages/Fetch';
 import Save from './client/pages/Save';
 import Logo from './client/components/Logo';
+import Globe from './client/pages/Globe';
 import './App.css';
 
 const App: React.FC = () => {
@@ -26,13 +27,18 @@ const App: React.FC = () => {
           <Link to="/fetch" className='link'>
             Fetch
           </Link>
+          <span className='separator'> | </span>
+          <Link to="/globe" className='link'>
+            Globe
+          </Link>
         </nav>
 
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/fetch" element={<Fetch />} />
           <Route path="/save" element={<Save />} />
+          <Route path="/fetch" element={<Fetch />} />
+          <Route path="/globe" element={<Globe />} />
         </Routes>
       </div>
     </Router>

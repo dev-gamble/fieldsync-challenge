@@ -3,6 +3,11 @@
     padding: 20px;
 }
 
+.fa-icon-search {
+    font-size: 18px;
+    padding: 10px;
+}
+
 .info-text {
     text-align: center;
     font-weight: bold;
@@ -46,4 +51,25 @@
     width: 200px;
     border-radius: 10px;
     display: inline-block;
+}
+
+
+.globe-container {
+    position: relative;
+    width: 100vw;
+    height: 70vh;
+}
+  
+.load-tileset-btn {
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.cesium-viewer {
+    width: 100vw;
+    height: 70vh;
 }
