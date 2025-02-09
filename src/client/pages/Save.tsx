@@ -14,7 +14,7 @@ const Save: React.FC = () => {
         if (savedUsers) {
             setUsers(JSON.parse(savedUsers));
         } else {
-            setMessage("No users to save! Please Download them from the Home page first.")
+            setMessage("No users to save! Please Download them from the Home page first.");
         }
     }, []);
 
