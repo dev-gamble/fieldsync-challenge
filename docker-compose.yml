@@ -1,0 +1,34 @@
+services:
+  database:
+    image: postgres:latest
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
+
+  api:
+    build: ./src/api
+    container_name: api
+    restart: always
+    ports:
+      - "3001:3001"
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users_db
+    volumes:
+      - ./src/api:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  pgdata:

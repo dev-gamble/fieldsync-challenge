@@ -1,10 +1,10 @@
 import React from "react";
 
-const Button: React.FC<{ text: string }> = ({ text }) => {
+const Button: React.FC<{ text: string, action: () => void }> = ({ text, action }) => {
     return (
         <>
             <div>
-                <button>{text}</button>
+                <button onClick={action}>{text}</button>
             </div>
         </>
     );

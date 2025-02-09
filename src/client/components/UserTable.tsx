@@ -18,7 +18,7 @@ const UserTable: React.FC<{ users: User[] }> = ({ users }) => {
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
-                <td>{user.company}</td>
+                <td>{user.company.name}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
               </tr>

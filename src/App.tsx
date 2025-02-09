@@ -1,10 +1,10 @@
-import './App.css'
-import Home from './client/pages/Home'
-import Fetch from './client/pages/Fetch'
-import Save from './client/pages/Save'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import React from 'react'
+import Home from './client/pages/Home';
+import Fetch from './client/pages/Fetch';
+import Save from './client/pages/Save';
 import Logo from './client/components/Logo';
+import './App.css';
 
 const App: React.FC = () => {
   return (
@@ -15,16 +15,16 @@ const App: React.FC = () => {
 
         {/* Navigation Links */}
         <nav className='nav-links'>
-          <Link to="/">
-            <a className='link'>Home</a>
+          <Link to="/" className='link'>
+            Home
           </Link>
           <span className='separator'> | </span>
-          <Link to="/save">
-            <a className='link'>Save</a>
+          <Link to="/save" className='link'>
+            Save
           </Link>
           <span className='separator'> | </span>
-          <Link to="/fetch">
-            <a className='link'>Fetch</a>
+          <Link to="/fetch" className='link'>
+            Fetch
           </Link>
         </nav>
 

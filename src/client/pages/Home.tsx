@@ -1,29 +1,59 @@
-import '../styles/Common.css'
-import UserTable from '../components/UserTable'
-import Button from '../components/Button'
-import { useState } from 'react'
-import { User } from '../../models/User'
-import React from 'react'
-import { FaDownload } from 'react-icons/fa'
-import NoDataText from '../components/NoDataText'
+import { useState, useEffect } from 'react';
+import { FaDownload } from 'react-icons/fa';
+import { User } from '../../models/User';
+import Button from '../components/Button';
+import Message from '../components/Message';
+import React from 'react';
+import UserTable from '../components/UserTable';
+import '../styles/Common.css';
 
 
 const Home: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([])
+    const [users, setUsers] = useState<User[]>([]);
+    const [message, setMessage] = useState("Click 'Download' to Display Users from the External API.");
+
+    useEffect(() => {
+        const savedUsers = localStorage.getItem('users');
+        if (savedUsers) {
+            setUsers(JSON.parse(savedUsers));
+        }
+    }, []);
+
+    // Fetch users from the API
+    const handleDownload = async () => {
+
+        setMessage("Downloading...")
+
+        try {
+            const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+            if (!response.ok)
+                throw new Error("Failed to fetch users");
+
+            const data = await response.json();
+            setUsers(data); // Update state with API response
+            localStorage.setItem('users', JSON.stringify(data)); // Persist locally
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
+    };
+
     return (
-        <>
-            <div>
-                <FaDownload className='fa-icon' />
-                <Button text='Download' />
-                { 
-                  users.length > 0 ? 
-                  <UserTable users={users} /> : 
-                  <NoDataText button='Download' source='External API' />
-                }
-                
-            </div>
-        </>
+        <div>
+            <FaDownload className='fa-icon' />
+            <Button text='Download' action={handleDownload} />
+            {
+                users.length > 0 ? 
+                    <div className="table-container">
+                        <UserTable users={users} /> 
+                    </div> :
+                    <Message message={message} />
+            }
+            
+        </div>
     );
 }
 
+
 export default Home
+
