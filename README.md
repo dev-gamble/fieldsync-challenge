@@ -16,8 +16,8 @@ Make sure you have the following installed:
 ## 📦 Installation
 
 ### 1️⃣ Clone the repository
-git clone https://github.com/dev-gamble/fieldsync-challenge.git
-cd fieldsync-challenge
+`git clone https://github.com/dev-gamble/fieldsync-challenge.git`
+`cd fieldsync-challenge`
 
 ### 2️⃣ Install dependencies
 `npm install`
