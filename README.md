@@ -31,7 +31,7 @@ This will start:
 
 - The PostgreSQL database (port 5432)
 - The Express API server (port 3001)
-- Automatically set up the database with the necessary tables.
+- The database with the necessary tables.
 
 ### 4️⃣ Start the frontend
 `npm run dev`
