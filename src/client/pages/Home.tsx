@@ -10,7 +10,7 @@ import '../styles/Common.css';
 
 const Home: React.FC = () => {
     const [users, setUsers] = useState<User[]>([]);
-    const [message, setMessage] = useState("Click 'Download' to Display Users from the External API.");
+    const [message, setMessage] = useState("Click 'Download' to Display Users from an External API.");
 
     useEffect(() => {
         const savedUsers = localStorage.getItem('users');
