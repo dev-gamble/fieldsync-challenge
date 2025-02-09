@@ -29,9 +29,8 @@ cd fieldsync-challenge
 
 This will start:
 
-- The PostgreSQL database (port 5432)
+- The PostgreSQL database (port 5432) with the necessary tables
 - The Express API server (port 3001)
-- The database with the necessary tables.
 
 ### 4️⃣ Start the frontend
 `npm run dev`
